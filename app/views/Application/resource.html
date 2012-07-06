@@ -1,0 +1,59 @@
+#{extends 'main.html' /}
+#{set title:'Resource details' /}
+
+<div class="page-header">
+    <h1>Resource Details &nbsp;<small>${resource.url}#${resource.name}</small></h1>
+</div>
+
+#{if meta}
+	<table class="zebra-striped">
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        #{list meta, as : 'm'}
+          <tr>
+            <td>${m.name}</td>
+            <td>${m.data}</td>
+			<td><a href="@{Application.removeMeta()}">Remove</a></td>
+          </tr>
+        #{/list}
+        </tbody>
+      </table>
+#{/if}
+
+<h2>Add Metadata</h2>
+<div class="well">
+#{form @Application.addMeta()}
+		<fieldset>
+				<div class="clearfix">
+        			<label for="mname">Name</label>
+        			<div class="input">
+        				<input type="text" name="mname" id="mname" class="xlarge" size="30"/>
+        			</div>
+        		</div>
+        		<div class="clearfix">
+        			<label for="mtype">Type</label>
+        			<div class="input">
+        				<input type="text" name="mtype" id="mtype" class="xlarge" size="30"/>
+        			</div>
+        		</div>        		
+        		<div class="clearfix">
+        			<label for="mvalue">Value</label>
+        			<div class="input">
+        				<input type="text" name="mvalue" id="mvalue" class="xlarge" size="30"/>
+        			</div>
+        		</div>
+   				<input type="hidden" name="name" id="name" value="${resource.name}"/>
+   				<input type="hidden" name="url" id="url" value="${resource.url}"/>
+         		
+	    		<div class="actions">
+        			<input class="btn primary" type="submit" value="Create" />
+        		</div>
+        </fieldset>
+#{/form}
+</div>

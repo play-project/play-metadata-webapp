@@ -1,0 +1,11 @@
+Node(Local1):
+    name: HerokuApp
+    baseURL: http://playfp7-metadata.herokuapp.com/
+    
+Node(Local2):
+    name: PlayCloud
+    baseURL: http://localhost:9191/
+
+Node(Local3):
+    name: PlayCloud
+    baseURL: http://localhost:8080/play-metadata-war/

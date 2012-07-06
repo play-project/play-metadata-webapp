@@ -1,0 +1,27 @@
+#{extends 'main.html' /} #{set title:'Resources' /}
+
+<div class="page-header">
+	<h1>Resources</h1>
+</div>
+
+#{if list}
+<table class="zebra-striped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		%{int i = 0}% #{list list, as : 'r'}
+		<tr>
+			<td align="left">${i++}</td>
+			<td><a href="${r.resource.url}" target="_blank">${r.resource.url}#${r.resource.name}</a></td>
+			<td><a
+				href="@{Application.resource(r.resource.name, r.resource.url)}" class="btn">Details</a></td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>
+#{/if}

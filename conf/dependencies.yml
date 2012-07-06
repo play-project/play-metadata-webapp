@@ -1,0 +1,40 @@
+# Application dependencies
+
+require:
+    - play
+    - play -> crud
+    - play -> secure
+    - org.petalslink.dsb -> dsb-cxfutils 1.0-SNAPSHOT:
+        exclude:
+            - org.slf4j -> *
+    - org.ow2.play -> play-metadata-api 1.0-SNAPSHOT:
+        exclude:
+            - org.slf4j -> *
+
+repositories:
+    - petalslinkrelease:
+        type: iBiblio
+        root: "http://maven.petalslink.com/public/"
+        contains:
+            - org.petalslink.* -> * 1.0.0
+        
+    - petalslink:
+        type: iBiblio
+        root: "http://maven.petalslink.com/public-snapshot/"
+        contains:
+            - org.petalslink.dsb -> *
+            - eu.play-project.governance -> *
+            - eu.play-project -> play-governance
+
+    - petalslinkothers:
+        type: iBiblio
+        root: "http://maven.petalslink.com/others/"
+        
+    - play-private.snapshot:
+        type: iBiblio
+        root: "http://maven.petalslink.com/private-play-snapshot/"
+        contains:
+            - eu.playproject.servicebus -> *
+            - eu.play-project -> *
+            - org.ow2.play -> *
+            #- eu.play-project.governance -> *            

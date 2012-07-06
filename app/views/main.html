@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap-1.2.0.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        <script src="@{'/public/javascripts/application.js'}" type="text/javascript" charset="utf-8"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+    
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <h3><a href="@{Application.index()}">Metadata</a></h3>
+          <ul>
+            <!--- browse -->
+            <ul class="nav secondary-nav">
+              <li class="menu">
+                <a href="#" class="menu">Resources</a>
+                <ul class="menu-dropdown">
+                  <li><a href="@{Application.list()}">List</a></li>
+                  <li><a href="@{Application.create()}">Create</a></li>
+                  <li><a href="@{Application.load()}">Load</a></li>
+                  <li><a href="@{Application.download()}" target="_blank">Download</a></li>
+                </ul>
+              </li>
+            </ul>
+          </ul>
+          <ul class="nav secondary-nav">
+          	<li>#{if currentNode}<a href="@{Application.connect()}">Connected to <b>${currentNode?.name}</b></a>#{/if}#{else}<a href="@{Application.connect()}"><b>Connect...</b></a>#{/else}</li>
+          </ul>
+        </div>
+      </div> <!-- /fill -->
+    </div>
+    
+  <div class="container">
+  
+  #{if flash.success}
+	<div class="alert-message success">
+        <a class="close" href="#">&times;</a>
+        <p><strong>${flash.success}</strong></p>
+      </div>
+  #{/if}
+  #{if flash.error}
+	<div class="alert-message error">
+        <a class="close" href="#">&times;</a>
+        <p><strong>${flash.error}</strong></p>
+      </div>
+  #{/if}
+
+     #{doLayout /}
+  </div>
+  </body>
+</html>

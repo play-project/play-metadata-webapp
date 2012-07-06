@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'Create resource' /}
+
+<div class="page-header">
+	<h1>Create a new resource</h1>
+</div>
+<div class="well">
+#{form @Application.createResource()}
+		<fieldset>
+				<div class="clearfix">
+        			<label for="name">Name</label>
+        			<div class="input">
+        				<input type="text" name="name" id="name" class="xlarge" size="30"/>
+        			</div>
+        		</div>
+        		<div class="clearfix">
+        			<label for="url">URL</label>
+        			<div class="input">
+        				<input type="text" name="url" id="url" class="xlarge" size="30"/>
+        			</div>
+        		</div>
+	    		<div class="actions">
+        			<input class="btn primary" type="submit" value="Create" />
+        		</div>
+        </fieldset>
+#{/form}
+</div>
