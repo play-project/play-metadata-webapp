@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.JSONConfiguration;
 import models.Node;
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
@@ -104,10 +105,9 @@ public class Application extends Controller {
 		MetadataBootstrap client = MetadataBootstrap.class.cast(o);
 
 		List<String> l = new ArrayList<String>();
-		// l.add("https://raw.github.com/play-project/play-configfiles/master/platformservices/governancemetadata/metadata.rdf.json");
 		l.add(store);
 		try {
-			// let's do it asynchronously...
+			// TODO : let's do it asynchronously...
 			client.init(l);
 			flash.success("Data loaded");
 		} catch (Exception e) {
@@ -120,7 +120,8 @@ public class Application extends Controller {
 	 * @GET
 	 */
 	public static void load() {
-		render();
+		List<JSONConfiguration> jsonconfig = JSONConfiguration.all().fetch();
+		render(jsonconfig);
 	}
 
 	/**

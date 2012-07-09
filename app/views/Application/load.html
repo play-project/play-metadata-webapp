@@ -17,3 +17,25 @@
 	</fieldset>
 	#{/form}
 </div>
+
+<h2>Available stores</h2>
+<table class="zebra-striped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	%{int i = 0}%
+	#{list jsonconfig, as : 'json'}
+		<tr>
+			<td align="left">${i++}</td>
+			<td><a href="${json.url}" target="_blank">${json.url}</a></td>
+			<td><a
+				href="@{Application.loadResources(json.url)}" class="btn">Load</a></td>
+		</tr>
+	#{/list}
+	</tbody>
+</table>

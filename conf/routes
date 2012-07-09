@@ -13,6 +13,7 @@ POST    /resource/create                        Application.createResource
 POST    /resource/meta/add                  	Application.addMeta
 GET     /resource/meta/rm		                Application.removeMeta
 POST    /resource/loadresources		            Application.loadResources
+GET     /resource/loadresources		            Application.loadResources
 GET     /resource/load		                  	Application.load
 
 # Ignore favicon requests

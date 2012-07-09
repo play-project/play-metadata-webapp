@@ -9,3 +9,7 @@ Node(Local2):
 Node(Local3):
     name: PlayCloud
     baseURL: http://localhost:8080/play-metadata-war/
+    
+JSONConfiguration(Github):
+    name: github
+    url: https://raw.github.com/play-project/play-configfiles/master/platformservices/governancemetadata/metadata.rdf.json
